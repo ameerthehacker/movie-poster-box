@@ -10,9 +10,7 @@ const App = () => {
      * [
      *  {
      *    id: 234                // some uuid
-     *    name: 'Avengers',     // movie name
      *    poster: 'http://...' // movie poster image
-     *    rating: '9.6'       // movie rating from imdb 
      *  }
      * ]
      */
@@ -24,7 +22,12 @@ const App = () => {
     fetchMoviesList();
   }, []);
 
-  return <MovieList movies={movies} />;
+  return (
+    <div>
+      <h1 className="heading">🍿 Movie Poster box</h1>
+      <MovieList movies={movies} />
+    </div>
+  );
 }
 
 export default App;
