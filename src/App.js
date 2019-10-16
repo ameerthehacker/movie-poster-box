@@ -25,7 +25,10 @@ const App = () => {
   return (
     <div>
       <h1 className="heading">🍿 Movie Poster box</h1>
-      <MovieList movies={movies} />
+      <MovieList movies={movies} onCollected={(index) => {
+        movies.splice(index, 1)
+        setMovies([...movies]);
+      }} />
     </div>
   );
 }

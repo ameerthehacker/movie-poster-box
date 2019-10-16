@@ -2,12 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Movie from '../movie/movie';
 
-const MovieList = ({ movies }) => {
-  return movies.map(movie => <Movie key={movie.id} {...movie} />);
+const MovieList = ({ movies, onCollected }) => {
+  return movies.map((movie, index) => 
+  <Movie 
+    key={index} {...movie} 
+    onCollected={() => onCollected(index)} 
+  />);
 }
 
 MovieList.propTypes = {
-  movies: PropTypes.arrayOf(Object).isRequired
+  movies: PropTypes.arrayOf(Object).isRequired,
+  onCollected: PropTypes.func.isRequired
 }
 
 export default MovieList;

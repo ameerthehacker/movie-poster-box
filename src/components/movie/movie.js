@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './movie.css';
 
-const Movie = ({ poster }) =>{
+const Movie = ({ poster, onCollected }) => {
   return (
-    <div className="movie-wrapper">
+    <div className="movie-wrapper" onClick={onCollected}>
       <div className="card">
         <img src={poster} />
       </div>
@@ -13,9 +13,8 @@ const Movie = ({ poster }) =>{
 }
 
 Movie.propTypes = {
-  name: PropTypes.string.isRequired,
   poster: PropTypes.string.isRequired,
-  rating: PropTypes.string.isRequired
+  onCollected: PropTypes.func.isRequired
 }
 
 export default Movie;
