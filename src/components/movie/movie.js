@@ -2,14 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './movie.css';
 
-const Movie = ({ poster, onCollected }) => {
-  return (
-    <div className="movie-wrapper" onClick={onCollected}>
-      <div className="card">
-        <img src={poster} />
+class Movie extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  shouldComponentUpdate(nextProps) {
+    if(this.props.id !== nextProps.id) {
+      return false;
+    }
+  }
+
+  render() {
+    return (
+      <div className="movie-wrapper" onClick={this.props.onCollected}>
+        <div className="card">
+          <img src={this.props.poster} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 Movie.propTypes = {

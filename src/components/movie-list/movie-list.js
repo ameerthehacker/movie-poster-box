@@ -5,7 +5,7 @@ import Movie from '../movie/movie';
 const MovieList = ({ movies, onCollected }) => {
   return movies.map((movie, index) => 
   <Movie 
-    key={index} {...movie} 
+    key={movie.id} {...movie} 
     onCollected={() => onCollected(index)} 
   />);
 }
